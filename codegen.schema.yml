@@ -1,0 +1,15 @@
+overwrite: true
+schema: https://fragrant-shadow-9470.fly.dev/
+
+generates:
+  ./schema.graphql:
+    plugins:
+      - schema-ast
+      - add:
+          content:
+            - '# This file is auto types by GraphQL Code Generator.'
+            - '# Do not edit manually!'
+
+    hooks:
+      afterOneFileWrite:
+        - prettier --write

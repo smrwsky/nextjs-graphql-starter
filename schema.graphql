@@ -1,0 +1,35 @@
+# This file is auto types by GraphQL Code Generator.
+# Do not edit manually!
+"""
+Adds a delay to the resolver, useful for testing loading states
+"""
+directive @delay(ms: Int! = 1000) on FIELD
+
+type Answer {
+  id: ID!
+  percentage: Float!
+  text: String!
+  votes: Int!
+}
+
+type Mutation {
+  answerPoll(answerId: ID!, id: ID!): Poll
+}
+
+type Poll {
+  answers: [Answer!]!
+  id: ID!
+  question: String!
+  totalVotes: Int!
+}
+
+type Query {
+  _service: _Service!
+  poll(id: ID!): Poll
+}
+
+scalar _Any
+
+type _Service {
+  sdl: String!
+}
